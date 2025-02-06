@@ -5,10 +5,21 @@ import {
   PokemonImage,
   PokemonInfo,
 } from "../styled/StyledComponents";
+import { useNavigate } from "react-router-dom";
 
 const PokemonCard = ({ poke, handleAddPoke }) => {
+  const navigate = useNavigate();
+
+  const handleDetail = (event) => {
+    if (event.target.closest("button")) {
+      return;
+    }
+
+    navigate(`/Detail?id=${poke.id}`);
+  };
+
   return (
-    <PokemonCardBox key={poke.id}>
+    <PokemonCardBox onClick={handleDetail} key={poke.id}>
       <PokemonImage src={poke.img_url} alt={poke.korean_name} />
       <PokemonInfo>
         <h2>{poke.korean_name}</h2>
