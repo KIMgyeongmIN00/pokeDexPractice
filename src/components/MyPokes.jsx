@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Box,
   BoxContainer,
@@ -7,10 +7,13 @@ import {
   PokemonInfo,
 } from "../styled/StyledComponents";
 import MOCK_DATA from "../mocks/pokemonDate";
+import { Context } from "../context/Context";
 
-const MyPokes = ({ pokes, handleRemovePoke }) => {
+const MyPokes = () => {
+  const { pokes, handleRemovePoke } = useContext(Context);
   const defaultArray = [null, null, null, null, null, null];
   const displayCards = [...pokes, ...defaultArray];
+
   return (
     <BoxContainer>
       {displayCards.slice(0, 6).map((id, index) => {

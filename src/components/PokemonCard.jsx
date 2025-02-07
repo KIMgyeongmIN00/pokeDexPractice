@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   AddButtons,
   PokemonCardBox,
@@ -6,8 +6,10 @@ import {
   PokemonInfo,
 } from "../styled/StyledComponents";
 import { useNavigate } from "react-router-dom";
+import { Context } from "../context/Context";
 
-const PokemonCard = ({ poke, handleAddPoke }) => {
+const PokemonCard = ({ poke }) => {
+  const { handleAddPoke } = useContext(Context);
   const navigate = useNavigate();
 
   const handleDetail = (event) => {

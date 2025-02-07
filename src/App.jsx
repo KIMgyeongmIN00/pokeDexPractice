@@ -1,8 +1,13 @@
 import React from "react";
 import Router from "./shared/Router";
+import { RefactoryProvider } from "./context/Context";
 
 const App = () => {
-  return <Router />;
+  return (
+    <RefactoryProvider>
+      <Router />
+    </RefactoryProvider>
+  );
 };
 
 export default App;
