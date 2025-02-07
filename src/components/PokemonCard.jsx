@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import {
   AddButtons,
   PokemonCardBox,
@@ -6,10 +6,11 @@ import {
   PokemonInfo,
 } from "../styled/StyledComponents";
 import { useNavigate } from "react-router-dom";
-import { Context } from "../context/Context";
+import { useDispatch } from "react-redux";
+import { handleAddPoke } from "../redux/slices/pokeDexSlice";
 
 const PokemonCard = ({ poke }) => {
-  const { handleAddPoke } = useContext(Context);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleDetail = (event) => {
@@ -27,7 +28,9 @@ const PokemonCard = ({ poke }) => {
         <h2>{poke.korean_name}</h2>
         <p>No. {poke.id.toString().padStart(3, "0")}</p>
       </PokemonInfo>
-      <AddButtons onClick={() => handleAddPoke(poke.id)}>추가</AddButtons>
+      <AddButtons onClick={() => dispatch(handleAddPoke(poke.id))}>
+        추가
+      </AddButtons>
     </PokemonCardBox>
   );
 };

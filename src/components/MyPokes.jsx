@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import {
   Box,
   BoxContainer,
@@ -7,10 +7,12 @@ import {
   PokemonInfo,
 } from "../styled/StyledComponents";
 import MOCK_DATA from "../mocks/pokemonDate";
-import { Context } from "../context/Context";
+import { useDispatch, useSelector } from "react-redux";
+import { handleRemovePoke } from "../redux/slices/pokeDexSlice";
 
 const MyPokes = () => {
-  const { pokes, handleRemovePoke } = useContext(Context);
+  const pokes = useSelector((ids) => ids.pokeDex.value);
+  const dispatch = useDispatch();
   const defaultArray = [null, null, null, null, null, null];
   const displayCards = [...pokes, ...defaultArray];
 
@@ -27,7 +29,7 @@ const MyPokes = () => {
             </PokemonInfo>
             <button
               onClick={() => {
-                handleRemovePoke(id);
+                dispatch(handleRemovePoke(id));
               }}
             >
               삭제

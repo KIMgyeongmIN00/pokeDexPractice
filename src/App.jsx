@@ -1,12 +1,13 @@
 import React from "react";
 import Router from "./shared/Router";
-import { RefactoryProvider } from "./context/Context";
+import store from "./redux/config/store";
+import { Provider } from "react-redux";
 
 const App = () => {
   return (
-    <RefactoryProvider>
+    <Provider store={store}>
       <Router />
-    </RefactoryProvider>
+    </Provider>
   );
 };
 
