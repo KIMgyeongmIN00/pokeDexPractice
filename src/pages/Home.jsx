@@ -1,13 +1,15 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { StartButton } from "../styled/StyledComponents";
+import { LogoBox, PokeLogo, StartButton } from "../styled/StyledComponents";
 
 const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <div>
-      <h1>POKE DEX</h1>
+    <>
+      <LogoBox>
+        <PokeLogo src="../public/pokeLogo.svg" alt="POKEDEX" />
+      </LogoBox>
       <StartButton
         onClick={() => {
           navigate("/Dex");
@@ -15,7 +17,7 @@ const Home = () => {
       >
         포켓몬 도감 시작하기
       </StartButton>
-    </div>
+    </>
   );
 };
 

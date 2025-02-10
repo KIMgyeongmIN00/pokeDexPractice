@@ -30,7 +30,7 @@ const MyPokes = () => {
             </PokemonInfo>
             <StyledButton
               onClick={() => {
-                dispatch(handleRemovePoke(id));
+                dispatch(handleRemovePoke(poke));
               }}
             >
               삭제

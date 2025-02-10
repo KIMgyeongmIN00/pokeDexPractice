@@ -8,7 +8,6 @@ import {
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { handleAddPoke } from "../redux/slices/pokeDexSlice";
-import { showToast } from "../redux/slices/toastSlice";
 
 const PokemonCard = ({ poke }) => {
   const dispatch = useDispatch();
@@ -31,8 +30,7 @@ const PokemonCard = ({ poke }) => {
       </PokemonInfo>
       <StyledButton
         onClick={() => {
-          dispatch(handleAddPoke(poke.id));
-          dispatch(showToast(poke.korean_name + "! 넌 내꺼야!"));
+          dispatch(handleAddPoke(poke));
         }}
       >
         추가
