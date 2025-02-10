@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { LogoBox, PokeLogo, StartButton } from "../styled/StyledComponents";
+import logoUrl from "../image/pokeLogo.svg";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -8,7 +9,7 @@ const Home = () => {
   return (
     <>
       <LogoBox>
-        <PokeLogo src="../public/pokeLogo.svg" alt="POKEDEX" />
+        <PokeLogo src={logoUrl} alt="POKEDEX" />
       </LogoBox>
       <StartButton
         onClick={() => {
