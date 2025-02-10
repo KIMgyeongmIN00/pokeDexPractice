@@ -67,7 +67,7 @@ export const PokemonInfo = styled.div`
   text-align: center;
 `;
 
-export const AddButtons = styled.button`
+export const StyledButton = styled.button`
   background: #ff6b6b;
   color: white;
   border: none;
@@ -86,4 +86,19 @@ export const AddButtons = styled.button`
     transform: scale(0.9);
     transition: transform 0.1s ease;
   }
+`;
+
+export const StartButton = styled.button`
+  position: relative;
+  padding: 1.5rem 3rem;
+  font-size: clamp(1.2rem, 4vw, 1.5rem); /* 반응형 폰트 */
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  user-select: none;
 `;

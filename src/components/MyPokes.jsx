@@ -5,6 +5,7 @@ import {
   PokemonCardBox,
   PokemonImage,
   PokemonInfo,
+  StyledButton,
 } from "../styled/StyledComponents";
 import MOCK_DATA from "../mocks/pokemonDate";
 import { useDispatch, useSelector } from "react-redux";
@@ -27,13 +28,13 @@ const MyPokes = () => {
               <h2>{poke.korean_name}</h2>
               <p>No. {poke.id.toString().padStart(3, "0")}</p>
             </PokemonInfo>
-            <button
+            <StyledButton
               onClick={() => {
                 dispatch(handleRemovePoke(id));
               }}
             >
               삭제
-            </button>
+            </StyledButton>
           </PokemonCardBox>
         ) : (
           <Box key={`empty-${index}`} />

@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  AddButtons,
+  StyledButton,
   PokemonCardBox,
   PokemonImage,
   PokemonInfo,
@@ -8,6 +8,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { handleAddPoke } from "../redux/slices/pokeDexSlice";
+import { showToast } from "../redux/slices/toastSlice";
 
 const PokemonCard = ({ poke }) => {
   const dispatch = useDispatch();
@@ -28,9 +29,14 @@ const PokemonCard = ({ poke }) => {
         <h2>{poke.korean_name}</h2>
         <p>No. {poke.id.toString().padStart(3, "0")}</p>
       </PokemonInfo>
-      <AddButtons onClick={() => dispatch(handleAddPoke(poke.id))}>
+      <StyledButton
+        onClick={() => {
+          dispatch(handleAddPoke(poke.id));
+          dispatch(showToast(poke.korean_name + "! 넌 내꺼야!"));
+        }}
+      >
         추가
-      </AddButtons>
+      </StyledButton>
     </PokemonCardBox>
   );
 };
