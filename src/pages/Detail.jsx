@@ -17,11 +17,12 @@ const Detail = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const queryParams = new URLSearchParams(location.search);
-  const pokemonId = queryParams.get("id");
+  const queryParams = new URLSearchParams(location.search); // 쿼리스트링 부분 반환
+  const pokemonId = queryParams.get("id"); // 쿼리스트링 부분 반환된 id값 가져오기
 
-  const pokemon = MOCK_DATA.find((p) => p.id.toString() === pokemonId);
+  const pokemon = MOCK_DATA.find((p) => p.id.toString() === pokemonId); // 기존 목 데이터와 현재 쿼리스트링에 들어있는 id값 대조
 
+  // 대조 유효성 검사
   if (!pokemon) {
     return (
       <DetailContainer>

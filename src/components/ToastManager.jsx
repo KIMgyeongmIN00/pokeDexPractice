@@ -1,6 +1,7 @@
 import React from "react";
 import { Slide, ToastContainer } from "react-toastify";
 
+// toastify 설정값 컴포넌트화
 const ToastManager = () => {
   return (
     <ToastContainer

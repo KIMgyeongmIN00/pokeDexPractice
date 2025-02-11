@@ -13,14 +13,17 @@ import { setScrollPosition } from "../redux/slices/scrollSlice";
 const PokemonCard = ({ poke }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  // 디테일 정보창 전환 핸들링
   const handleDetail = (event) => {
+    // 클릭 한 부분이 버튼이면 이벤트 취소
     if (event.target.closest("button")) {
       return;
     }
 
-    dispatch(setScrollPosition(window.scrollY));
+    dispatch(setScrollPosition(window.scrollY)); // 스크롤 값 저장을 위해 값 전달
 
-    navigate(`/Detail?id=${poke.id}`);
+    navigate(`/Detail?id=${poke.id}`); // 클릭한 포켓몬 카드의 id값에 해당하는 Detail 페이지로 이동
   };
 
   return (
