@@ -15,7 +15,7 @@ const pokeDexSlice = createSlice({
         if (pokes.value.length < 6) {
           const newPokes = [...pokes.value, action.payload.id];
           localStorage.setItem("pokes", JSON.stringify(newPokes));
-          toast(action.payload.korean_name + "(이)가 추가 되었습니다.");
+          toast.success(`${action.payload.korean_name}(이)가 추가 되었습니다.`);
           return { ...pokes, value: newPokes }
         } else {
           Swal.fire({
@@ -43,7 +43,7 @@ const pokeDexSlice = createSlice({
         "pokes",
         JSON.stringify(deleteIds)
       );
-      toast(action.payload.korean_name + "(이)가 삭제 되었습니다.")
+      toast.warning(`${action.payload.korean_name}(이)가 삭제 되었습니다.`)
       return { ...pokes, value: deleteIds }
     },
   }

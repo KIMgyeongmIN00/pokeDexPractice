@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   StyledButton,
   PokemonCardBox,
@@ -8,15 +8,17 @@ import {
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { handleAddPoke } from "../redux/slices/pokeDexSlice";
+import { setScrollPosition } from "../redux/slices/scrollSlice";
 
 const PokemonCard = ({ poke }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const handleDetail = (event) => {
     if (event.target.closest("button")) {
       return;
     }
+
+    dispatch(setScrollPosition(window.scrollY));
 
     navigate(`/Detail?id=${poke.id}`);
   };

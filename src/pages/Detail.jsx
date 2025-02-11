@@ -22,6 +22,15 @@ const Detail = () => {
 
   const pokemon = MOCK_DATA.find((p) => p.id.toString() === pokemonId);
 
+  if (!pokemon) {
+    return (
+      <DetailContainer>
+        <DetailTitle>올바르지 못한 접근입니다!</DetailTitle>
+        <StyledButton onClick={() => navigate(-1)}>뒤로가기</StyledButton>
+      </DetailContainer>
+    );
+  }
+
   return (
     <DetailContainer>
       <DetailTitle>{pokemon.korean_name}</DetailTitle>

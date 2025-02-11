@@ -217,3 +217,16 @@ export const ButtonContainer = styled.div`
     align-items: center;
   }
 `;
+
+export const TopButton = styled.button`
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  background-color: #ff6b6b;
+  color: #fff;
+  border-radius: 50%;
+  padding: 10px 15px;
+  font-size: 18px;
+  border: none;
+`;
